@@ -4,6 +4,12 @@ import "./weather.css";
 export default function Weather() {
   return (
     <div className="weather">
+      <form>
+        <label>
+          <input type="text" name="name" />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
       <div className="destination-description">
         <h1>rome</h1>
         <p>woensdag 14:00</p>
