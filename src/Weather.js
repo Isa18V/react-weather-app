@@ -3,7 +3,7 @@ import "./weather.css";
 
 export default function Weather() {
   return (
-    <div className="weather">
+    <div className="Weather">
       <form>
         <label>
           <input type="text" name="name" />
@@ -12,8 +12,10 @@ export default function Weather() {
       </form>
       <div className="destination-description">
         <h1>rome</h1>
-        <p>woensdag 14:00</p>
-        <p>Overwegend bewolkt</p>
+        <ul>
+          <li>woensdag 14:00</li>
+          <li>Overwegend bewolkt</li>
+        </ul>
       </div>
 
       <div className="row">
@@ -25,9 +27,11 @@ export default function Weather() {
           21 C°
         </div>
         <div className="col-6">
-          <p>Neerslagkans: 1%</p>
-          <p> Luchtvochtigheid: 56%</p>
-          <p>Wind: 11 km/h</p>
+          <ul>
+            <li>Neerslagkans: 1%</li>
+            <li>Luchtvochtigheid: 56%</li>
+            <li>Wind: 11 km/</li>
+          </ul>
         </div>
       </div>
     </div>
