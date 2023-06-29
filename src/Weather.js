@@ -1,5 +1,6 @@
 import React from "react";
 import "./weather.css";
+import axios from "axios";
 
 export default function Weather() {
   return (
@@ -14,7 +15,7 @@ export default function Weather() {
       </div>
 
       <div className="destination-description">
-        <h1>rome</h1>
+        <h1>Rome</h1>
         <ul>
           <li>woensdag 14:00</li>
           <li>Overwegend bewolkt</li>
