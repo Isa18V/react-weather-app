@@ -3,16 +3,20 @@ import "./weather.css";
 import axios from "axios";
 
 export default function Weather() {
-  const [temperature, setTemperature] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [weatherdata, setWeatherdata] = useState({});
+  const [ready, setReady] = useState(false);
 
   function HandleResponse(response) {
-    setTemperature(response.data.temperature.current);
+    setWeatherdata({
+      temperature: response.data.main.temp,
+      wind: 12,
+      city: response.data.name,
+    });
 
-    setLoading(true);
+    setReady(true);
   }
 
-  if (loading) {
+  if (ready) {
     return (
       <div className="Weather">
         <div className="container-form">
