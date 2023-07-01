@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./weather.css";
+import FormattedDate from "./FormattedDate.js";
 import axios from "axios";
+import { SpinnerCircularFixed } from "spinners-react";
 
-export default function Weather() {
+export default function Weather(props) {
   const [weatherdata, setWeatherdata] = useState({ ready: false });
 
   function HandleResponse(response) {
@@ -10,11 +12,11 @@ export default function Weather() {
     setWeatherdata({
       ready: true,
       temperature: response.data.temperature.current,
-      wind: 12,
+      date: response.data.time * 1000,
+      wind: response.data.wind.speed,
       city: response.data.city,
       description: response.data.condition.description,
       humidity: response.data.temperature.humidity,
-      wind: response.data.wind.speed,
       iconImg: response.data.condition.icon_url,
     });
   }
@@ -32,9 +34,11 @@ export default function Weather() {
         </div>
 
         <div className="destination-description">
-          <h1>{weatherdata.city}</h1>
+          <h1 className="text-capitalize">{weatherdata.city}</h1>
           <ul>
-            <li>day hour:minutes</li>
+            <li>
+              <FormattedDate date={new Date()} />
+            </li>
             <li>{weatherdata.description}</li>
           </ul>
         </div>
@@ -55,9 +59,8 @@ export default function Weather() {
     );
   } else {
     const apiKey = "ecb1e604034014f9c94ecdtbo8ae777f";
-    let query = "London";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(HandleResponse);
-    return "Loading ...";
+    return <SpinnerCircularFixed color="purple" thickness="300" />;
   }
 }
