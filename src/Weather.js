@@ -3,20 +3,23 @@ import "./weather.css";
 import axios from "axios";
 
 export default function Weather() {
-  const [weatherdata, setWeatherdata] = useState({});
-  const [ready, setReady] = useState(false);
+  const [weatherdata, setWeatherdata] = useState({ ready: false });
 
   function HandleResponse(response) {
+    console.log(response);
     setWeatherdata({
-      temperature: response.data.main.temp,
+      ready: true,
+      temperature: response.data.temperature.current,
       wind: 12,
-      city: response.data.name,
+      city: response.data.city,
+      description: response.data.condition.description,
+      humidity: response.data.temperature.humidity,
+      wind: response.data.wind.speed,
+      iconImg: response.data.condition.icon_url,
     });
-
-    setReady(true);
   }
 
-  if (ready) {
+  if (weatherdata.ready) {
     return (
       <div className="Weather">
         <div className="container-form">
@@ -29,98 +32,22 @@ export default function Weather() {
         </div>
 
         <div className="destination-description">
-          <h1>Rome</h1>
+          <h1>{weatherdata.city}</h1>
           <ul>
-            <li>woensdag 14:00</li>
-            <li>Overwegend bewolkt</li>
+            <li>day hour:minutes</li>
+            <li>{weatherdata.description}</li>
           </ul>
         </div>
 
         <div className="row">
           <div className="col-6">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-              alt="Overwegend bewolkt"
-            ></img>
-            {Math.round(temperature)} C°
+            <img src={weatherdata.iconImg} alt="Overwegend bewolkt"></img>
+            {Math.round(weatherdata.temperature)} C°
           </div>
           <div className="col-6">
             <ul>
-              <li>Neerslagkans: 1%</li>
-              <li>Luchtvochtigheid: 56%</li>
-              <li>Wind: 11 km/</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* here is the row with all the days */}
-        <div className="row">
-          <div className="col-3">
-            <ul>
-              <li>monday</li>
-              <li>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="Overwegend bewolkt"
-                ></img>
-              </li>
-              <li>
-                <div className="row">
-                  <div className="col-6">12°</div>
-                  <div className="col-6">20°</div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div className="col-3">
-            <ul>
-              <li>teusday</li>
-              <li>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="Overwegend bewolkt"
-                ></img>
-              </li>
-              <li>
-                <div className="row">
-                  <div className="col-6">12°</div>
-                  <div className="col-6">20°</div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div className="col-3">
-            <ul>
-              <li>wensday</li>
-              <li>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="Overwegend bewolkt"
-                ></img>
-              </li>
-              <li>
-                <div className="row">
-                  <div className="col-6">12°</div>
-                  <div className="col-6">20°</div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div className="col-3">
-            <ul>
-              <li>thusrday</li>
-              <li>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="Overwegend bewolkt"
-                ></img>
-              </li>
-              <li>
-                <div className="row">
-                  <div className="col-6">12°</div>
-                  <div className="col-6">20°</div>
-                </div>
-              </li>
+              <li>Humidity: {weatherdata.humidity}%</li>
+              <li>Wind: {Math.round(weatherdata.wind)} km</li>
             </ul>
           </div>
         </div>
