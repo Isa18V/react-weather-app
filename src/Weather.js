@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import WeatherInfo from "./WeatherInfo";
+import WeatherForcast from "./WeatherForcast";
+
 import "./weather.css";
 import axios from "axios";
-import WeatherInfo from "./WeatherInfo";
+
 import { SpinnerCircularFixed } from "spinners-react";
 
 export default function Weather(props) {
@@ -46,6 +49,7 @@ export default function Weather(props) {
           </form>
         </div>
         <WeatherInfo data={weatherdata} />
+        <WeatherForcast />
       </div>
     );
   } else {
