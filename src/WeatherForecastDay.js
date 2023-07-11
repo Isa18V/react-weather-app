@@ -23,7 +23,6 @@ export default function WeatherForecastDay(props) {
   return (
     <div>
       <div className="WeatherForecast-day">{day()}</div>
-
       <div>image</div>
       <div className="WeatherForecast-temperatures">
         <span className="WeatherForecast-temperature-max">
