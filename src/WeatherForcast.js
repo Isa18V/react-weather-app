@@ -17,10 +17,10 @@ export default function WeatherForcast(props) {
     setLoaded(true);
   }
   function load() {
-    let apiKey = `bd79ao40tde3dec118ca46bc3e6dd55f`;
-    let longitude = props.coord.longitude;
-    let latitude = props.coord.latitude;
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
+    let apiKey = `9eca7aac0b071aa16e3cb063adba0785`;
+    let longitude = props.coordinates.lon;
+    let latitude = props.coordinates.lat;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -28,11 +28,11 @@ export default function WeatherForcast(props) {
     return (
       <div className="WeatherForecast">
         <div className="row">
-          {forecast.map(function (dailyForcast, index) {
+          {forecast.map((dailyForecast, index) => {
             if (index < 5) {
               return (
                 <div className="col" key={index}>
-                  <WeatherForecastDay data={dailyForcast} />
+                  <WeatherForecastDay data={dailyForecast} />
                 </div>
               );
             } else {
@@ -44,7 +44,6 @@ export default function WeatherForcast(props) {
     );
   } else {
     load();
-
     return null;
   }
 }

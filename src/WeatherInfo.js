@@ -18,7 +18,7 @@ export default function WeatherInfo(props) {
 
       <div className="row">
         <div className="col-6">
-          <img src={props.data.iconImg} alt="Overwegend bewolkt"></img>
+          <img src={props.data.icon} alt="Overwegend bewolkt"></img>
           <WeatherTemperature celcius={props.data.temperature} />
         </div>
         <div className="col-6">
