@@ -11,14 +11,15 @@ export default function WeatherForcast(props) {
   function HandleResponse(response) {
     setLoaded(true);
     setForecast(response.data.daily[0]);
+    console.log(response);
   }
+
   if (loaded) {
-    console.log(forecast);
     return (
       <div className="WeatherForecast">
         <div className="row">
           <div className="col">
-            <WeatherForecastDay date={forecast} />
+            <WeatherForecastDay data={forecast} />
           </div>
         </div>
       </div>
@@ -30,5 +31,6 @@ export default function WeatherForcast(props) {
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apikey}&units=metric`;
 
     axios.get(apiUrl).then(HandleResponse);
+    return null;
   }
 }
