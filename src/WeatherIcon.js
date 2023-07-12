@@ -8,27 +8,30 @@ import rainImg from "./images/rain.png";
 import thunderstormImg from "./images/thunderstorm.png";
 import snowImg from "./images/snow.png";
 import mistImg from "./images/mist.png";
+import clearSkyDImg from "./images/clearSkyD.png";
+import fewCloudsDImg from "./images/fewCloudsD.png";
+import rainDImg from "./images/rainD.png";
 
 export default function WeatherIcon(props) {
   const codeMapping = {
     "01d": clearSkyImg,
-    "01n": "CLEAR_NIGHT",
+    "01n": clearSkyDImg,
     "02d": fewCloudsImg,
-    "02n": "PARTLY_CLOUDY_NIGHT",
+    "02n": fewCloudsDImg,
     "03d": scatteredCloudsImg,
-    "03n": "PARTLY_CLOUDY_NIGHT",
+    "03n": scatteredCloudsImg,
     "04d": brokenCloudsImg,
-    "04n": "CLOUDY",
+    "04n": brokenCloudsImg,
     "09d": showerRainImg,
-    "09n": "RAIN",
+    "09n": showerRainImg,
     "10d": rainImg,
-    "10n": "RAIN",
+    "10n": rainDImg,
     "11d": thunderstormImg,
-    "11n": "RAIN",
+    "11n": thunderstormImg,
     "13d": snowImg,
-    "13n": "SNOW",
+    "13n": snowImg,
     "50d": mistImg,
-    "50n": "FOG",
+    "50n": mistImg,
   };
 
   return (
