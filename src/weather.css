@@ -1,9 +1,10 @@
 .Weather {
   font-family: arial, sans-serif;
-  border: 1px solid #dadde1;
+  border: 1px solid #31255a;
   padding: 16px;
   border-radius: 4px;
   color: #878787;
+  background-color: #75b4e3;
 }
 .container-form {
   height: 100%;

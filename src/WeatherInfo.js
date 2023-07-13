@@ -14,7 +14,7 @@ export default function WeatherInfo(props) {
           <li>
             <FormattedDate date={new Date()} />
           </li>
-          <li>{props.data.description}</li>
+          <li className="city-description">{props.data.description}</li>
         </ul>
       </div>
       <div className="row">

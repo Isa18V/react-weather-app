@@ -1,4 +1,11 @@
+footer {
+  color: white;
+}
+a {
+  color: #75b3e3ae;
+}
 .App {
   max-width: 600px;
   margin: 30px auto;
+  background-color: #54416dc6;
 }
