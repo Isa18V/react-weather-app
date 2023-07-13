@@ -1,0 +1,10 @@
+.WeatherForecast-day {
+  font-size: 18px;
+  padding-left: 8px;
+}
+.WeatherForecast-temperature-max {
+  padding-right: 10px;
+}
+.WeatherForecast-temperature-min {
+  opacity: 0.7;
+}
