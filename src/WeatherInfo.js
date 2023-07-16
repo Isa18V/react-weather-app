@@ -9,7 +9,9 @@ export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
       <div className="destination-description">
-        <h1 className="text-capitalize">{props.data.city}</h1>
+        <h1 className="text-capitalize" style={{ fontSize: 35 }}>
+          {props.data.city}
+        </h1>
         <ul>
           <li>
             <FormattedDate date={new Date()} />

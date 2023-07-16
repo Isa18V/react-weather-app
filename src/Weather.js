@@ -43,9 +43,20 @@ export default function Weather(props) {
         <div className="container-form">
           <form onSubmit={HandelSubmit}>
             <label>
-              <input type="text" name="name" onChange={handleCityChange} />
+              <div className="InputContainer">
+                <input
+                  placeholder="Search.."
+                  id="input"
+                  type="text"
+                  className="input"
+                  name="text"
+                  onChange={handleCityChange}
+                />
+              </div>
             </label>
-            <input type="submit" value="Submit" />
+            <button type="submit" value="Submit">
+              Search
+            </button>
           </form>
         </div>
         <WeatherInfo data={weatherdata} />

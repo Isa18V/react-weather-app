@@ -1,3 +1,6 @@
+body {
+  background-color: #7a6b8d;
+}
 footer {
   color: white;
 }
@@ -7,5 +10,4 @@ a {
 .App {
   max-width: 600px;
   margin: 30px auto;
-  background-color: #54416dc6;
 }
